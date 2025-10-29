@@ -1,0 +1,14 @@
+fastapi==0.95.2
+uvicorn[standard]==0.22.0
+python-dotenv==1.0.0
+sentence-transformers
+faiss-cpu       # or faiss-gpu if you have GPU
+numpy
+PyPDF2==3.0.1
+groq           # keep same you used; if pip package exists. (If not, use their SDK)
+pydantic==1.10.9
+requests==2.31.0
+streamlit
+langchain      # only if using; your code uses langchain memory — but keep versions
+bert-score
+typing-extensions
