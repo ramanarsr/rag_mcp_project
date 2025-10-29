@@ -140,7 +140,7 @@ with st.sidebar:
             st.session_state["current_chat"] = chat["id"]
         if cols[1].button("🗑", key=f"del_{chat['id']}"):
             delete_chat(chat["id"])
-            st.experimental_rerun()
+            st.rerun()
 
 current_chat_id = st.session_state.get("current_chat")
 current_chat = get_chat_by_id(current_chat_id) if current_chat_id else None
@@ -170,7 +170,7 @@ else:
             if feedback_state == "idle":
                 if st.button("📝 Report / Suggest Update", key=f"{key_prefix}_button"):
                     st.session_state[f"{key_prefix}_state"] = "writing"
-                    st.experimental_rerun()
+                    st.rerun()
 
             # --- Writing state: show feedback box ---
             elif feedback_state == "writing":
@@ -192,14 +192,14 @@ else:
 
                             send_feedback_email(user_query, feedback_text, assistant_response)
                             st.session_state[f"{key_prefix}_state"] = "sent"
-                            st.experimental_rerun()
+                            st.rerun()
                         else:
                             st.warning("Please enter some feedback before submitting.")
 
                 with col2:
                     if st.button("❌ Cancel", key=f"{key_prefix}_cancel"):
                         st.session_state[f"{key_prefix}_state"] = "idle"
-                        st.experimental_rerun()
+                        st.rerun()
 
             # --- Sent state: show success message briefly, then reset ---
             elif feedback_state == "sent":
@@ -273,6 +273,7 @@ else:
             st.write("### Summary Metrics")
 
             st.json(scores)
+
 
 
 
