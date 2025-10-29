@@ -9,6 +9,7 @@ groq           # keep same you used; if pip package exists. (If not, use their S
 pydantic==1.10.9
 requests==2.31.0
 streamlit
-langchain      # only if using; your code uses langchain memory — but keep versions
+langchain>=0.2.0      # only if using; your code uses langchain memory — but keep versions
 bert-score
+
 typing-extensions
