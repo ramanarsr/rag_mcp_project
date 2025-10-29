@@ -1,15 +1,15 @@
 # streamlit_app/app.py
+import sys, os
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 import streamlit as st
 import uuid
 import re
 import numpy as np
 import smtplib
 from email.mime.text import MIMEText
-from rag_mcp_project.client.mcp_client import generate as mcp_generate, judge as mcp_judge
+from client.mcp_client import generate as mcp_generate, judge as mcp_judge
 from langchain.memory import ConversationBufferMemory
 from bert_score import score as bert_score
-import sys, os
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 
 st.set_page_config(page_title="High School Science RAG (MCP)", layout="wide")
 
@@ -273,5 +273,6 @@ else:
             st.write("### Summary Metrics")
 
             st.json(scores)
+
 
 
