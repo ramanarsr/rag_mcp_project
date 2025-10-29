@@ -2,6 +2,7 @@
 import os
 import requests
 from dotenv import load_dotenv
+import streamlit as st
 
 load_dotenv()
 BASE = st.secrets["SERVER_URL"]
@@ -24,4 +25,5 @@ def judge(query: str, gen_ans: str, ref_ans: str, model: str = None):
     resp.raise_for_status()
 
     return resp.json()  # {judge_output: str}
+
 
