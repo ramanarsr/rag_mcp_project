@@ -14,7 +14,7 @@ st.set_page_config(page_title="High School Science RAG (MCP)", layout="wide")
 # --- Email utility for learning agent feedback ---
 def send_feedback_email(query_text, feedback_text, response_text):
     sender = "ramanachandranrsr@gmail.com"       # <-- Replace with your sender email
-    password = "egoi qrzy yoez nzpu"        # <-- Gmail App Password
+    password = st.secrets["APP_PASS"]        # <-- Gmail App Password
     recipient = "ramanachandranrs@gmail.com"    # <-- Replace with your recipient email
 
     subject = "🧠 RAG Learning Agent User Feedback"
@@ -269,4 +269,5 @@ else:
             llm_judge_avg = round(np.mean(judge_scores) / 5, 3) if judge_scores else 0.0
             scores["LLM-Judge Score"] = llm_judge_avg
             st.write("### Summary Metrics")
+
             st.json(scores)
