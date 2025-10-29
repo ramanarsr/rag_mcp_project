@@ -4,7 +4,7 @@ import requests
 from dotenv import load_dotenv
 
 load_dotenv()
-BASE = f"https://rag-mcp-project.onrender.com"
+BASE = st.secrets["SERVER_URL"]
 
 def generate(query: str, memory: str = "", k: int = 5, model: str = None, temperature: float = None):
     payload = {"query": query, "memory": memory, "k": k}
@@ -24,3 +24,4 @@ def judge(query: str, gen_ans: str, ref_ans: str, model: str = None):
     resp.raise_for_status()
 
     return resp.json()  # {judge_output: str}
+
